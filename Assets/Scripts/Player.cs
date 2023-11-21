@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     //移動範囲
     [SerializeField] float movingLimit = 5.0f;
     //アニメーター
-    public Animator animator;
+    [SerializeField] Animator animator;
     //ジャンプ位置
     [SerializeField] Vector3 jump;
     //ジャンプ力
@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
     [SerializeField] bool isGround;
     //物理演算用
     Rigidbody rb;
+    //速度上限
+    private float maxSpeed = 6.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -59,7 +61,15 @@ public class Player : MonoBehaviour
         transform.Translate(Vector3.forward * Time.deltaTime * speed, Space.World);
 
         //加速させる
-        speed += Time.deltaTime * acceleration;
+        if(speed < maxSpeed)
+        {
+            speed += Time.deltaTime * acceleration;
+        }
+        else
+        {
+            speed = maxSpeed;
+        }
+       
 
         if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {

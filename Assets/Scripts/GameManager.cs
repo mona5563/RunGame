@@ -1,3 +1,6 @@
+/*GameManager
+ * 2023/11/15
+ */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

@@ -1,3 +1,6 @@
+/*Collectable
+ * 2023/11/10
+ */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
