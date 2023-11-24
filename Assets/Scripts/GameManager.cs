@@ -4,11 +4,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro; //TextMeshProを使えるようにする
 
 public class GameManager : MonoBehaviour
 {
     //オーディオソース
     [SerializeField] AudioSource audioSource;
+    //スコア
+    [SerializeField] int score;
+    //スコアテキスト
+    [SerializeField] TextMeshProUGUI scoreText;
 
     // Start is called before the first frame update
     void Start()
@@ -27,5 +32,9 @@ public class GameManager : MonoBehaviour
     {
         //アイテム収集時にSEを再生する
         audioSource.Play();
+        //スコアを加算する
+        score++;
+        //スコアのテキスト表示
+        scoreText.text = "Score:" + score;
     }
 }
