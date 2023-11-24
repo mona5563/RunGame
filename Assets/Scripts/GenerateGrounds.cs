@@ -7,49 +7,81 @@ using UnityEngine;
 
 public class GenerateGrounds : MonoBehaviour
 {
+    //ステージサイズ
+    int stageSize = 20;
+    //生成するステージの番号
+    int stageNum;
+
+    //プレイヤーのTransform
+    [SerializeField] Transform player;
     //Groundオブジェクト格納用配列
-    [SerializeField] GameObject[] ground;
-    //Groundオブジェクトを生成するZ軸の位置(最初に生成する位置はz80とする)
-    [SerializeField] int zPos = 80;
-    //常に生成しないよう制限するフラグ
-    [SerializeField] bool creatingGround = false;
-    //生成するGroundオブジェクトの番号
-    [SerializeField] int groundNum;
-    //生成するGroundオブジェクトのZ位置の変化量
-    private int addZPos = 20;
+    [SerializeField] GameObject[] grounds;
+    //スタート時のステージ番号
+    [SerializeField] int firstStageNum;
+    //事前に生成するステージ
+    [SerializeField] int aheadStage;
+    //生成したステージのリスト
+    [SerializeField] List<GameObject> stageList = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        int seed = (int)System.DateTime.Now.Ticks;
+        Random.InitState(seed);
+
+        stageNum = firstStageNum - 1;
+        StageManager(aheadStage);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!creatingGround)
+        int playerPosIndex = (int)(player.position.z / stageSize);
+
+        if(playerPosIndex + aheadStage > stageNum)
         {
-            //生成中なら
-            creatingGround = true;
-            //コルーチンを呼び出す
-            StartCoroutine(GenerateGround());
+            StageManager(playerPosIndex + aheadStage);
         }
     }
 
-    /// <summary>
-    /// コルーチンを使用してGroundオブジェクトをランダムに生成する
-    /// </summary>
-    /// <returns></returns>
-    IEnumerator GenerateGround()
+    void StageManager(int maps)
     {
-        //生成するGroundオブジェクトをランダムで決める
-        groundNum = Random.Range(0, 4);
-        //オブジェクトを生成する
-        Instantiate(ground[groundNum], new Vector3(0, 0, zPos), Quaternion.identity);
-        zPos += addZPos;
-        //コルーチンを5秒間停止させる
-        yield return new WaitForSeconds(5);
-        //生成が完了したことを知らせる
-        creatingGround = false;
+        if(maps <= stageNum)
+        {
+            return;
+        }
+        
+        //指定したステージまで作成する
+        for(int i = stageNum + 1; i <= maps; i++)
+        {
+            GameObject stage = MakeStage(i);
+            stageList.Add(stage);
+        }
+
+        //古いステージを削除する
+        while(stageList.Count > aheadStage + 1)
+        {
+            DestroyStage();
+        }
+
+        stageNum = maps;
+    }
+
+    GameObject MakeStage(int index)
+    {
+        //次のステージをランダムで決める
+        int nextStage = Random.Range(0, grounds.Length);
+
+        //ステージを生成する
+        GameObject stageObject = (GameObject)Instantiate(grounds[nextStage], new Vector3(0, 0, index * stageSize), Quaternion.identity);
+
+        return stageObject;
+    }
+
+    void DestroyStage()
+    {
+        GameObject oldStage = stageList[0];
+        stageList.RemoveAt(0);
+        Destroy(oldStage);
     }
 }
