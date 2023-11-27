@@ -11,9 +11,14 @@ public class GameManager : MonoBehaviour
     //オーディオソース
     [SerializeField] AudioSource audioSource;
     //スコア
-    [SerializeField] int score;
+    public static int score = 0;
     //スコアテキスト
     [SerializeField] TextMeshProUGUI scoreText;
+
+    public static int GetScore()
+    {
+        return score;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +39,7 @@ public class GameManager : MonoBehaviour
         audioSource.Play();
         //スコアを加算する
         score++;
-        //スコアのテキスト表示
+        //スコアを表示する
         scoreText.text = "Score:" + score;
-    }
+    } 
 }

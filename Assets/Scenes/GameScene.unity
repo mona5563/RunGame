@@ -676,6 +676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 0}
+  scoreText: {fileID: 55375574}
 --- !u!4 &995792749
 Transform:
   m_ObjectHideFlags: 0
@@ -919,8 +920,8 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1812753423, guid: 2dcb362b7b3f3904cadd445e7839eb6a, type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 3584248274014387189, guid: 2dcb362b7b3f3904cadd445e7839eb6a, type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3607534413429934785, guid: 2dcb362b7b3f3904cadd445e7839eb6a, type: 3}
@@ -970,10 +971,6 @@ PrefabInstance:
     - target: {fileID: 4132995780884385915, guid: 2dcb362b7b3f3904cadd445e7839eb6a, type: 3}
       propertyPath: m_Name
       value: Character
-      objectReference: {fileID: 0}
-    - target: {fileID: 9104511557824406957, guid: 2dcb362b7b3f3904cadd445e7839eb6a, type: 3}
-      propertyPath: speed
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2dcb362b7b3f3904cadd445e7839eb6a, type: 3}

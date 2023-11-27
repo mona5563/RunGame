@@ -38,7 +38,6 @@ public class Collectable : MonoBehaviour
             gameManager.UpdateScore();
             //オブジェクトを破壊する
             Destroy(gameObject);
-
         }
     }
 }
