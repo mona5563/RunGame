@@ -30,7 +30,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKey(KeyCode.Escape))
+        {
+            //ESCキーが押されたらゲームを終了する
+            EndGame();
+        }
     }
 
     public void UpdateScore()
@@ -42,4 +46,15 @@ public class GameManager : MonoBehaviour
         //スコアを表示する
         scoreText.text = "Score:" + score;
     } 
+
+    public void EndGame()
+    {
+        #if UNITY_EDITOR
+            //ゲームプレイ終了
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            //ゲームプレイ終了
+            Application.Quit();
+        #endif
+    }
 }
