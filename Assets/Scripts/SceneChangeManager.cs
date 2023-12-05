@@ -5,9 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class SceneChangeManager : MonoBehaviour
 {
+    [SerializeField]
+    private Fade fade = null;
+
+    [SerializeField]
+    private int targetScene = 0;
+
     public void ChangeScene(int sceneNumber)
     {
-        SceneManager.LoadScene(sceneNumber);
+        targetScene = sceneNumber;
+        SceneManager.LoadScene(targetScene);
     }
 
     public void ExitGame()
