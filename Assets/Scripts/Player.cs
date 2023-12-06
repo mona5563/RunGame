@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
     //ゲーム中か判定
     public bool isGamePlaying;
 
+    [SerializeField]
+    private SceneController sceneController;
 
     // Start is called before the first frame update
     void Start()
@@ -107,7 +109,7 @@ public class Player : MonoBehaviour
         else
         {
             //ゲームを終了する
-            StartCoroutine(nameof(EndGame));
+            EndGame();
         }
     }
 
@@ -115,13 +117,11 @@ public class Player : MonoBehaviour
     /// ゲームを終了させる
     /// </summary>
     /// <returns></returns>
-    IEnumerator EndGame()
+    public void EndGame()
     {
         //Idleアニメーションを再生
         animator.SetBool("Death", true);
-        //２秒間待機する
-        yield return new WaitForSeconds(2);
         //リザルトシーンへ遷移する
-        SceneManager.LoadScene("ResultScene");
+        sceneController.ChangeScene(2);
     }
 }

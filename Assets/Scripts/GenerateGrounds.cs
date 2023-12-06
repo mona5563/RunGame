@@ -199,7 +199,6 @@ public class GenerateGrounds : MonoBehaviour
             GameObject newEvent = levelManager.GetPrefabObject(levelNoiseValue, eventObjectNoiseValue);
 
             newEvent.SetActive(true);
-            Debug.Log(newEvent);
             newEvent.transform.SetParent(getEventIndex.transform);
             newEvent.transform.position = Vector3.zero;
             newEvent.transform.localPosition = Vector3.zero;
