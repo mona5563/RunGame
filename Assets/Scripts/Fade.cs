@@ -41,7 +41,6 @@ public class Fade : MonoBehaviour
             fadeImage.color = new Color(0, 0, 0, alpha);
             yield return null;
         }
-
         SceneManager.LoadScene(sceneNumber);
     }
 }

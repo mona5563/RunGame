@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //起動時スコアの初期値を0にする
         score = 0;
         //アイテム収集時のSEを取得
         audioSource = this.GetComponent<AudioSource>();

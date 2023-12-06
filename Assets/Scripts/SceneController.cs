@@ -13,6 +13,15 @@ public class SceneController : MonoBehaviour
 
     public void ChangeScene(int sceneNumber)
     {
+        Debug.Log(sceneNumber);
+
+        //ŠÔ‚ª~‚Ü‚Á‚Ä‚¢‚½‚ç
+        if(Time.timeScale == 0)
+        {
+            //ŠÔ‚ği‚ß‚é
+            Time.timeScale = 1;
+        }
+
         sceneFader.FadeToScene(sceneNumber);
     }
 
