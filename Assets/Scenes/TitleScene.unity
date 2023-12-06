@@ -346,7 +346,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f1b1dae0bd46894ab17a0993979095d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneNumber: 0
 --- !u!1001 &421344297
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -453,7 +452,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &506252270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1026,7 +1025,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.21226418, b: 0.21226418, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1063,7 +1062,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f1b1dae0bd46894ab17a0993979095d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneNumber: 0
 --- !u!1 &1218880136
 GameObject:
   m_ObjectHideFlags: 0
@@ -1283,8 +1281,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278200319
-  m_fontColor: {r: 1, g: 0.15346535, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1380,7 +1378,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f1b1dae0bd46894ab17a0993979095d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneNumber: 1
 --- !u!4 &1560265287
 Transform:
   m_ObjectHideFlags: 0
