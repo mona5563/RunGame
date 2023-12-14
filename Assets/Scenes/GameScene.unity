@@ -1972,7 +1972,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &881305506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2170,7 +2170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 1363547226}
-  deleteText: {fileID: 0}
+  deleteText: {fileID: 585062000}
 --- !u!1 &920572408
 GameObject:
   m_ObjectHideFlags: 0
